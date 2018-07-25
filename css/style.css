@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "SF Display";
+  font-weight: 800;
+  src: url(../fonts/SF-Pro-Display-Heavy.otf);
+}
+ul{
+	margin: 0;
+	padding: 0;
+}
+.clearfix { clear: both; } 
+
+
+.header{
+	background: url('../img/bg.jpg') no-repeat top center;
+	min-height:  500px;
+}
+.wrapper{
+	margin: 0 auto;
+	width: 1170px;
+}
+.top{
+	display: block;
+	width: 100%;
+	height:  auto;
+}
+.menu{
+	float: right;
+}
+.menu li {
+ 	display: inline-block;
+  	margin-top: 19px; 
+  	margin-left: 58px;
+}
+.menu a{
+	color: #fff;
+	font-size: 18px;
+	border-bottom: 1px dashed rgba(255,255,255,.5);
+	padding-bottom: 5px;
+	text-decoration: none;
+}
+.descr__width{
+	width: 655px;
+	margin: 0 auto;
+}
+.descr{
+	color: #ffffff;
+	
+}
+.descr__title_start{
+margin-top: 100px;
+
+}
+.descr h1{
+color: #ffffff;
+font-family: "SF Display";
+font-size: 100px;
+font-weight: 400;
+margin-top: 29px;
+}
+.button{
+	background: url(../pic/button.png) no-repeat;
+	cursor: pointer;
+ 	border: none;
+	width: 180px;
+	height: 36px;
+ }
