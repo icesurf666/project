@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>Lionid Kroll</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+	<link rel="stylesheet" href="plugins/slick/slick.css"/>
+	<link rel="stylesheet" href="plugins/slick/slick-theme.css"/>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,9 +16,9 @@
   	<div class="top">
 			<div class="menu">
 				<ul>
-					<li><a href="#">Обо мне</a></li>
-					<li><a href="#">Портфолио</a></li>
-					<li><a href="#">Связь</a></li>
+					<li><a href="#info">Обо мне</a></li>
+					<li><a href="#portfolio">Портфолио</a></li>
+					<li><a href="#call">Связь</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -25,7 +29,11 @@
 				<h1>Lionid Kroll</h1>
 					<h2>Front-end developer</h2>
 			<p class="descr__title_end">&lt/title&gt</p>
-			<button class="button">Написать мне</button>
+			
+			<a class="button" data-fancybox data-src="#hidden-content" href="js/script.js">
+	<p class="modal_p">Написать мне</p>
+</a>
+
 		</div>
 	</div>
   </div>
@@ -34,7 +42,7 @@
 	<img src="pic/avatar.png" alt="аватар">
 </div>
 <div class="back">
-		<div class="text">
+		<div class="text" id="info">
 			<div class="text__title"> &ltо себе&gt</div>
 			<div class="text__wrapper">
 			<div class="text__p">
@@ -110,15 +118,17 @@
 		</div>
 
 			<div class="text__title_close"> &lt/о себе&gt</div>
+			<div class="img-skittles"><img src="img/Skittles.png" alt="skittles"></div>
+			<div class="img-diskette"><img src="img/Diskette.png" alt="diskette"></div>
 	</div>
 </div>
-<div class="portfolio">
+<div class="portfolio" id="portfolio">
 	<div class="portfolio__wrapper">
 		<div class="portfolio__text">
-			<ul>
-				<li class="portfolio-li portfolio-li-active">Все мои работы</li>
-				<li class="portfolio-li">Верстка</li>
-				<li class="portfolio-li">Дизайн</li>
+			<ul class="tabs__caption" id="mix-wrapper">
+				<li class="portfolio-li filter active" id="all">Все мои работы</li>
+				<li class="portfolio-li filter" id="web">Верстка</li>
+				<li class="portfolio-li filter" id="design">Дизайн</li>
 			</ul>
 		</div>
 	</div>
@@ -127,12 +137,27 @@
         </div>
         
         <div class="wrapper-img">
-        		<div class="wrapper-img_i"><img src="img/1.png"><a class="portfolio__link" href="#">Gold Smile</a><div class="portfolio_sign">Адаптивный каталог драгоценностей</div></div>
-				<div class="wrapper-img_i"><img src="img/2.png"><a class="portfolio__link" href="#">Хумус</a><div class="portfolio_sign">Промо-сайт алтайского<br> 
+        	
+        		<div class="wrapper-img_i design"><a href="img/1.png" data-fancybox="images"><img src="img/1.png"></a><a href="#"class="portfolio__link">Gold Smile</a><div class="portfolio_sign">Адаптивный каталог драгоценностей</div></div>
+
+        		<div class="wrapper-img_i web"><a href="img/2.png" data-fancybox="images"><img src="img/2.png"></a><a href="#"class="portfolio__link">Хумус</a><div class="portfolio_sign">Промо-сайт алтайского<br> 
 производителя закусок </div></div>
-				<div class="wrapper-img_i"><img src="img/3.png"><a class="portfolio__link" href="#">Нэкс</a><div class="portfolio_sign">Интернет магазин строительных<br>
+
+				<div class="wrapper-img_i design"><a href="img/3.png" data-fancybox="images"><img src="img/3.png"></a><a href="#"class="portfolio__link">Нэкс</a><div class="portfolio_sign">Интернет магазин строительных<br>
 и отделочных материалов</div></div>
-        </div>
+
+
+				<div class="wrapper-img_i design"><a href="img/1.png" data-fancybox="images"><img src="img/1.png"></a><a href="#"class="portfolio__link">Gold Smile</a><div class="portfolio_sign">Адаптивный каталог драгоценностей</div></div>
+
+        		<div class="wrapper-img_i web"><a href="img/2.png" data-fancybox="images"><img src="img/2.png"></a><a href="#"class="portfolio__link">Хумус</a><div class="portfolio_sign">Промо-сайт алтайского<br> 
+производителя закусок </div></div>
+
+				<div class="wrapper-img_i design"><a href="img/3.png" data-fancybox="images"><img src="img/3.png"></a><a href="#"class="portfolio__link">Нэкс</a><div class="portfolio_sign">Интернет магазин строительных<br>
+и отделочных материалов</div></div>
+
+			
+        		
+       </div>
 
         <div class="icons">
 			<div class="icon_wrapper">	
@@ -158,23 +183,45 @@
         	<div class="callback_title">
         		Написать письмо <i class="fas fa-envelope"></i>
         	</div>
+        	<form action="php/send.php" method="POST">
         	  <div class="callback_text">
         	  	<p>Имя</p>
-        	  	<input type="text" class="text_enter" placeholder="Введите имя" >
+        	  	<input type="text" name="name" class="text_enter" placeholder="Введите имя" >
         	  </div>
         	  <div class="callback_text">
         	  	<p>E-mail</p>
-        	  	<input type="text" class="text_enter" placeholder="example@gmail.com">
+        	  	<input type="text" name="email" class="text_enter" placeholder="example@gmail.com">
         	  </div>
         	  <div class="callback_text">
         	  	<p>Сообщение</p>
-        	  	<textarea type="text" class="text_enter-big" placeholder="Текст"></textarea>
+        	  	<textarea type="text" name="message" class="text_enter-big" placeholder="Текст"></textarea>
         	  </div>
-        	  <div class="callback__text_agree">
+        	  <div class="callback__text_agree" id="call">
         	  	<input type="checkbox" checked class="checkbox"><div class="callback__agree">Согласен на обратную связь</div>
         	  </div>
-        	  <div class="btn-wrapper"><button class="btn-send">Отправить</button></div>
+        	  <div class="btn-wrapper"><button class="btn-send">Отправить</button></div>  
+        	</form>
         </div>
+
+        <!-- HIDDEN FORM -->
+			<form class="form__hidden" action="php/send.php" method="POST" id="hidden-content">
+			        	  <div class="callback_text">
+			        	  	<p>Имя</p>
+			        	  	<input type="text" name="name" class="text_enter" placeholder="Введите имя" >
+			        	  </div>
+			        	  <div class="callback_text">
+			        	  	<p>E-mail</p>
+			        	  	<input type="text" name="email" class="text_enter" placeholder="example@gmail.com">
+			        	  </div>
+			        	  <div class="callback_text">
+			        	  	<p>Сообщение</p>
+			        	  	<textarea type="text" name="message" class="text_enter-big" placeholder="Текст"></textarea>
+			        	  </div>
+			        	  <div class="callback__text_agree" id="call">
+			        	  	<input type="checkbox" checked class="checkbox"><div class="callback__agree">Согласен на обратную связь</div>
+			        	  </div>
+			        	  <div class="btn-wrapper"><button class="btn-send">Отправить</button></div>
+						</form>
 </div>
 <footer>
 	<div class="footer__back">
@@ -184,5 +231,10 @@
 		<div class="footer_desc">Front-end developer</div>
 	</div>
 </footer>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+<!-- <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script> -->
+<script src="plugins/slick/slick.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
