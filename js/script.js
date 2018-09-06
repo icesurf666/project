@@ -8,8 +8,13 @@ $(document).ready(function(){
     });
 });
 
-
-	
+// Мобильное меню //
+$(document).ready(function () {
+  $('.menu-mobile').live('click', function(){
+   $('.menu-m').show();
+    return(false);
+  })
+  });
 
 	
 
@@ -26,33 +31,30 @@ $(document).ready(function(){
 // }); 
 
 // ACTIVE
-$(function() {
-    $(".portfolio-li").click(function() {
-        $(".portfolio-li").removeClass("active");         
-        $(this).toggleClass("active");
-    })
-});
+// $(function() {
+//     $(".portfolio-li").click(function() {
+//         $(".portfolio-li").removeClass("active");         
+//         $(this).toggleClass("active");
+//     })
+// });
 
 // FILTER
 $(document).ready(function(){
     $('.portfolio-li').click(function(){
+      $(".portfolio-li").removeClass("active");         
+        $(this).toggleClass("active");
       var category = $(this).attr('id');
       if (category == 'all'){
           $('.wrapper-img_i').addClass('hide');
-      setTimeout(function(){
-        $('.wrapper-img_i').removeClass('hide');
-      }, 300);
+          $('.wrapper-img_i').removeClass('hide');
   } else {
       $('.wrapper-img_i').addClass('hide');
-      setTimeout(function(){
-        $('.' + category).removeClass('hide');
-      }, 300);
+      $('.' + category).removeClass('hide');
     }
   });
   });
   
     
-
 
 
 
@@ -80,11 +82,55 @@ $(document).ready(function () {
 });
 
  // SLIDER //
+
+ $(function(){
+  if($(window).width()>480){
  $('.wrapper-img').slick({
   infinite: false,
-  slidesToShow: 3,
+  slidesToShow: 3,  
   slidesToScroll: 3,
   prevArrow: '<div class="arrow_left"><i class="fas fa-arrow-left"></i></div>',
   nextArrow: '<div class="arrow_right"><i class="fas fa-arrow-right"></i></div>'
 });
-	
+}
+else{
+  $('.wrapper-img').slick({
+  infinite: false,
+  slidesToShow: 3,  
+  slidesToScroll: 1
+  });
+}
+});
+
+
+
+//  function getSliderSettings(){
+//   return {
+//     infinite: false,
+//     slidesToShow: 3,  
+//     slidesToScroll: 3,
+//     prevArrow: '<div class="arrow_left"><i class="fas fa-arrow-left"></i></div>',
+//     nextArrow: '<div class="arrow_right"><i class="fas fa-arrow-right"></i></div>'
+//   }
+// }
+
+ 
+
+
+ // function slider() {
+ // $('.wrapper-img').slick({
+ //  infinite: false,
+ //  slidesToShow: 3,  
+ //  slidesToScroll: 3,
+ //  prevArrow: '<div class="arrow_left"><i class="fas fa-arrow-left"></i></div>',
+ //  nextArrow: '<div class="arrow_right"><i class="fas fa-arrow-right"></i></div>'
+ //  });
+ //    };
+
+// $(document).ready(function() {
+//     slider();
+//   });
+
+
+
+

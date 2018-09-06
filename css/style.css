@@ -14,9 +14,18 @@
 	  src: url(../fonts/SF-Pro-Display-Bold.otf);
 }
 @font-face {
-	  font-family: "SF Display Thin";
-	  font-weight: 700;
-	  src: url(../fonts/SF-Pro-Display-Thin.otf)
+	font-family: 'SF UI Display';
+	src: url('../fonts/SFUIDisplay-Thin.eot');
+	src: local('SF UI Display Thin'), local('SFUIDisplay-Thin'),
+		url('../fonts/SFUIDisplay-Thin.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/SFUIDisplay-Thin.woff') format('woff'),
+		url('../fonts/SFUIDisplay-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+*{
+	margin: 0;
+	padding: 0;
 }
 ul{
 	margin: 0;
@@ -32,10 +41,11 @@ ul{
 .header{
 	background: url('../img/bg.jpg') no-repeat top center;
 	min-height:  500px;
+  
 }
 .wrapper{
 	margin: 0 auto;
-	width: 1170px;
+	width: 960px;
 }
 .top{
 	display: block;
@@ -44,14 +54,14 @@ ul{
 }
 .menu{
 	float: right;
-	margin-right: 96px;
+	margin-right: -8px;
 }
-.menu li {
+.menu_li {
  	display: inline-block;
-  	margin-top: 19px; 
-  	margin-left: 58px;
+  	margin-top: 17px;
+    margin-left: 57px;
 }
-.menu a{
+.menu_a{
 	color: #fff;
 	font-size: 18px;
 	border-bottom: 1px dashed rgba(255,255,255,.5);
@@ -64,21 +74,44 @@ ul{
 }
 .descr{
 	color: #ffffff;
+	margin-top: 86px;
 }
 .descr__title_start{
 	margin-top: 66px;
     margin-bottom: 0;
 }
-.descr h1{
+.descr_h1:before{
+	content: "<title>";
+	
+	position: absolute;
+	margin-top: -27px;
+    margin-left: 5px;
+  font-size: 16px;
+  font-family: "SF Pro Display";
+  color: rgb(255, 255, 255);
+}
+
+.descr_h1{
+	position: relative;
+	padding-left: 43px;
 	color: #ffffff;
 	font-family: "SF Display";
 	font-size: 100px;
 	font-weight: 400;
 	margin-top: 28px;
 	margin: 0;
-
 }
-.descr h2{
+.descr_h1:after{
+	content: "</title>";
+	position: absolute;
+	margin-top: 160px;
+    margin-left: -522px;
+  font-size: 16px;
+  font-family: "SF Pro Display";
+  color: rgb(255, 255, 255);
+}
+
+.descr_h2{
 	font-family: SF Display Regular;
 	
 	height: 27px;
@@ -86,10 +119,10 @@ ul{
 	font-size: 30px;
 	font-weight: 400;
 	margin-top: -4px;
-	margin-left: 131px;
+	margin-left: 176px;
 }
 .button{
-	width: 180px;
+	width: 164px;
 	text-align: center;
 	text-decoration: none;
 	height: 38px;
@@ -97,7 +130,8 @@ ul{
     cursor: pointer;
     border: none;
     float: right;
-    margin-top: -40px;
+    margin-top: 19px;
+    margin-right: -28px;
    	position: relative;
  }
  .form__hidden{
@@ -106,7 +140,7 @@ ul{
  .button::after{
  	content: '';
  	position: absolute;
- 	left: 180px;
+ 	left: 164px;
  	bottom: 0px;
  	border: 19px solid transparent;	
  	border-left: 20px solid white;
@@ -125,7 +159,7 @@ ul{
  	width: 300px;
 	height: 300px;
  	margin: 0 auto;
- 	margin-top: -165px;
+ 	margin-top: -150px;
  	box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.3);
  	border-radius:  50%;
  	position:  relative;
@@ -158,8 +192,8 @@ ul{
 }
 .img-diskette{
     position: absolute;
-    right: -335px;
-    top: 790px;
+        right: -318px;
+    top: 731px;
 }
 .text__title{
 	color: #333333;
@@ -167,9 +201,32 @@ ul{
 	font-size: 18px;
 	font-weight: 700;
 }
+.text__wrapper:before{
+content: '<о себе>';
+position: absolute;
+color: #333333;
+	font-family: "SF Pro Display";
+	font-size: 18px;
+	font-weight: 700;
+	margin-top: -41px;
+    margin-left: -90px;
+
+}
+
 .text__wrapper{
+	position: relative;
 	margin-left: 90px;
-	margin-top: 23px;
+    margin-top: 110px;
+}
+.text__wrapper:after{
+content: '</о себе>';
+position: absolute;
+color: #333333;
+	font-family: "SF Pro Display";
+	font-size: 18px;
+	font-weight: 700;
+	margin-top: -41px;
+    margin-left: -90px;
 }
 .text__p{
 	color: #333333;
@@ -178,15 +235,19 @@ ul{
 	font-weight: 700;
 }
 .text__descr{
-
-	margin-top: 30px;
+	font-family: 'SF UI Display';
+	margin-top: 24px;
 	color: #333333;
 	font-size: 16px;
+	line-height: 1.5;
+
 }
 .text__func{
+	font-family: 'SF UI Display';
 	margin-top: 25px;
 }
 .text__func_wrapper{
+	font-family: 'SF UI Display';
 	margin-left: 17px;
 }
 .text__func_li{
@@ -399,6 +460,9 @@ ul{
 	margin-top: 48px;
 }
 .callback_title{
+	font-family: "SF Display Bold";
+	font-size: 18px;
+	font-weight: 700;
 	margin-bottom: 32px;
 }
 .text_enter{
@@ -420,6 +484,15 @@ ul{
 }
 .checkbox{
 
+}
+.callback_text{
+	margin-bottom: 20px;
+	font-family: "SF Display Regular";
+	font-size: 14px;
+	font-weight: 400;
+}
+.callback_text_p{
+	margin-bottom: 10px;
 }
 .callback__agree{
 	display: inline-block;
@@ -505,3 +578,130 @@ ul{
  	margin-left: 330px;
     margin-top: 129px;
  }
+ .menu-m, .menu-mobile{
+	display: none;
+ }
+ .menu-m{
+ 	position: fixed;
+ 	z-index: 9999;
+ 	background: #000;
+ 	height: 435px;
+ 	width: 100%;
+ 	padding-top: 150px;
+
+ }
+ .menu-m__item{
+ 	text-align: center;
+ }
+ .menu-m__link{
+	color: #ffffff;
+	font-family: "SF Display";
+	font-size: 50px;
+	font-weight: 400;
+	text-decoration: none;
+ }
+ @media(min-width : 320px) and (max-width : 480px) {
+ html{
+	overflow-x: hidden;
+}
+ .menu, .img-diskette, .img-skittles, .portfolio-line, .button{
+	display: none;
+}
+.descr{
+	margin-top: 0px;
+}
+.menu-mobile{
+	display: block;
+ }
+ .descr__width, .wrapper, .text, .portfolio__wrapper, .text_enter, .text_enter-big, .skills_white_one, .callback{
+ 	width: 100%;
+ }
+.wrapper, .tabs__caption, .footer__back, .footer_desc{
+	text-align: center;	
+}
+.portfolio__wrapper{
+	margin-top: 30px;
+}
+.callback__wrapper{
+	width: 300px;	
+}
+.text__skills_one{
+	width: 81.67%;
+}
+.text__skills_two{
+	width: 63.33%;
+}
+.text__skills_three{
+	width: 45%;
+}
+.text__skills_four{
+	width: 70%;
+}
+.callback_text{
+	width: 97%;
+}
+.text__skills_five{
+	width: 20%;	
+}
+.text__wrapper{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.text__wrapper:before{
+	margin-left: 0px;
+}
+.text__wrapper:after{
+	margin-left: 0px;
+	margin-top: 30px;
+}
+.menu-mobile{
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	width: 23px;
+	height: 14px;
+	background: url(../pic/burger.png);
+}
+.menu-mobile__close{
+	position: absolute;
+	top: 24px;
+	right: 24px;
+	width: 17px;
+	height: 17px;
+	background: url(../pic/x.png);
+}
+.descr_h1{
+	font-size: 50px;
+	padding-left: 0;
+	padding-top: 156px;
+}
+.descr_h1:before{
+	margin-top: -43px;
+    margin-left: -21px;
+}
+.descr_h1:after{
+	margin-top: 116px;
+    margin-left: -287px;
+}
+.descr_h2{
+	margin-left: 0;
+}
+.portfolio-li{
+	display: block;
+	margin-right: 0px;
+	margin-bottom: 20px;
+}
+.wrapper-img{
+	margin-top: 30px;
+}
+.footer__title{	
+	margin-top: 32px;
+	margin-left: 0;
+}
+.footer_desc{
+	margin: 0;
+	margin-top: 14px;
+}
+.btn-wrapper {
+	margin-left: 50px;
+}	
