@@ -9,10 +9,10 @@ $(document).ready(function(){
 });
 
 // Мобильное меню //
-$(document).ready(function () {
-  $('.menu-mobile').live('click', function(){
-   $('.menu-m').show();
-    return(false);
+$(document).ready(function() {
+  $('.menu-mobile').on('click', function(){
+   $('.menu-m').toggle();
+    return false;
   })
   });
 

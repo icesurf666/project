@@ -655,6 +655,7 @@ color: #333333;
 	margin-top: 30px;
 }
 .menu-mobile{
+	z-index: 9999;
 	position: absolute;
 	top: 24px;
 	right: 24px;
