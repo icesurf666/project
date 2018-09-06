@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 // Мобильное меню //
 $(document).ready(function() {
-  $('.menu-mobile').on('click', function(){
+  $('.menu-mobile, .menu-mobile__close').on('click', function(){
    $('.menu-m').toggle();
     return false;
   })
